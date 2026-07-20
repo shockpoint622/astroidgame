@@ -5,6 +5,8 @@ from logger import log_state
 
 def main():
     pygame.init()
+    clock = pygame.time.Clock()
+    dt: float = 0.0
     screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
     #main game loop
     while True:
@@ -17,6 +19,8 @@ def main():
         #blank starting screen for initial testing perposes
         screen.fill("black")
         #refreshes the screen at the end of the loop
+        dt = clock.tick(60) / 1000
+        print(dt)
         pygame.display.flip()
 
 
