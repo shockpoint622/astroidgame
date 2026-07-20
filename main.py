@@ -20,7 +20,6 @@ def main():
         screen.fill("black")
         #refreshes the screen at the end of the loop
         dt = clock.tick(60) / 1000
-        print(dt)
         pygame.display.flip()
 
 
