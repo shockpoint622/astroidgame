@@ -8,6 +8,7 @@ def main():
     clock = pygame.time.Clock()
     dt: float = 0.0
     screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+    user: Player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     #main game loop
     while True:
         #log the current state of the game in jsonl file
@@ -19,10 +20,13 @@ def main():
 
         #blank starting screen for initial testing perposes
         screen.fill("black")
-        user: Player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
+        user.update(dt)
+
         user.draw(screen)
         #refreshes the screen at the end of the loop
         dt = clock.tick(60) / 1000
+
         pygame.display.flip()
 
 
