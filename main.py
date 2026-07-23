@@ -7,6 +7,9 @@ from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from shot import Shot
 import sys
+import random
+
+random.seed(1)
 
 def main():
     pygame.init()
@@ -24,6 +27,7 @@ def main():
 
     user: Player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     field: AsteroidField = AsteroidField()
+
 
     #main game loop
     while True:
@@ -43,7 +47,13 @@ def main():
                 log_event("player_hit")
                 print("Game over!")
                 sys.exit()
-            continue
+
+            for shot in shots:
+                if ast.collides_with(shot):
+                    log_event("asteroid_shot")
+                    shot.kill()
+                    ast.split()
+
 
 
         for d in drawable:
