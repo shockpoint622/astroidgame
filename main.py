@@ -9,7 +9,7 @@ from shot import Shot
 import sys
 import random
 
-random.seed(1)
+#random.seed(1)
 
 def main():
     pygame.init()
@@ -66,3 +66,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+pygame.quit()
